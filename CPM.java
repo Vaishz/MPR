@@ -23,6 +23,7 @@ class Activity {
         dependencies.add(activity);
     }
 }
+
 class CPMDiagramPanel extends JPanel {
     private List<Activity> criticalPath;
 
@@ -172,7 +173,9 @@ public class CPM {
         // Display the Critical Path and CPM time
         System.out.println("\nCritical Path:");
         List<Activity> criticalPath = cpm.getCriticalPath();
-        for (Activity activity : criticalPath) {
+
+        for (int i = criticalPath.size() - 1; i >= 0; i--) {
+            Activity activity = criticalPath.get(i);
             System.out.println(activity.name);
         }
 
