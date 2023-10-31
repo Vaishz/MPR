@@ -1,9 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;   //allows the code to respond when we click on the calculate pert and clear screen button  
-import java.awt.event.ActionListener; //used for the 'calculate pert' and 'clear screen' button
-import java.text.DecimalFormat; //allows the results to be displayed in specific decimal formats for the answers(probability and all)
- import java.util.ArrayList;  //without these the lists part throws errors
+import java.awt.event.ActionEvent;  
+import java.awt.event.ActionListener; 
+import java.text.DecimalFormat; 
+ import java.util.ArrayList;  
  import java.util.List;
 
 class PERTTask {
@@ -51,7 +51,7 @@ class PERTTask {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
          inputPanel = new JPanel(); //initializes the panel
-        inputPanel.setLayout(new GridLayout(0, 3)); //0 rows is a default for however many rows we ll use and 3 columns is the three columns used in the pert calculator one with task name and pessimistic duration 2nd with optimistic and dependancies and 3rd with most likely duration
+        inputPanel.setLayout(new GridLayout(0, 3)); 
 
         JLabel nameLabel = new JLabel("Task Name"); //initializes the labels(display area) with task name,dependancies,etc
         JLabel optimisticLabel = new JLabel("Optimistic Duration");
@@ -60,8 +60,8 @@ class PERTTask {
         JLabel dependenciesLabel = new JLabel("Dependencies (comma-separated)"); //displays dependencies
 
         JTextField nameField = new JTextField();
-        JTextField optimisticField = new JTextField(); //allows user to input the data
-        JTextField mostLikelyField = new JTextField();    //JTextField is used to initialize a single line text field
+        JTextField optimisticField = new JTextField(); 
+        JTextField mostLikelyField = new JTextField();   
         JTextField pessimisticField = new JTextField();
         JTextField dependenciesField = new JTextField();
 
@@ -73,12 +73,10 @@ class PERTTask {
         calculateButton.addActionListener(new ActionListener() { //when we click on calculate button what should happen
             @Override
             public void actionPerformed(ActionEvent e) { //this method gets executed when the calculateButton button is clicked
-                String name = nameField.getText();  //inputs the name TextField using getText() method and stores it in name 
-                int optimistic = Integer.parseInt(optimisticField.getText()); //we convert the string that we enter using getText() into a string that is stored in optimistic 
+                String name = nameField.getText();  
+                int optimistic = Integer.parseInt(optimisticField.getText());
                 int mostLikely = Integer.parseInt(mostLikelyField.getText());
                 int pessimistic = Integer.parseInt(pessimisticField.getText());
-                // String[] dependencies = dependenciesField.getText().split(",");  //dependenciesField ka text is stored in dependencies ka array
-                    //split makes an array of strings and each string represents a dependency and that is stored in dependecies named array , -> delimiter
                 PERTTask task = new PERTTask(name, optimistic, mostLikely, pessimistic); //all inputs are passed as values for the constructor
                 tasks.add(task); //adds the name,optimistic,most likely , pessimistic values in the constructor
 
@@ -87,9 +85,9 @@ class PERTTask {
             }
         });
 
-        clearButton.addActionListener(new ActionListener() {  //action listener for the clear button wala part
+        clearButton.addActionListener(new ActionListener() { 
             @Override
-            public void actionPerformed(ActionEvent e) { //this method is called when the clear screen wala button is clicked
+            public void actionPerformed(ActionEvent e) { 
                 tasks.clear();
                 projectTime = 0.0;
                 projectVariance = 0.0;
@@ -102,8 +100,8 @@ class PERTTask {
                 dependenciesField.setText("");
             }
         });
-            //displays all the parts of the GUI from the labels to the textarea
-        inputPanel.add(nameLabel);  //Task name wala text ko display karta hai londa
+
+        inputPanel.add(nameLabel);  
         inputPanel.add(optimisticLabel);
         inputPanel.add(mostLikelyLabel);
         inputPanel.add(nameField);
