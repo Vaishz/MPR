@@ -1,9 +1,10 @@
-package graphdemo1;
+package javaapplication2;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Checkbox1 extends Frame {
     public static void main(String[] args) {
@@ -20,9 +21,9 @@ public class Checkbox1 extends Frame {
         // Create a Panel to hold the checkboxes and button
         Panel panel = new Panel();
 
-        // Create two checkboxes
-        Checkbox1 cpmCheckbox = new Checkbox("CPM");
-        Checkbox1 pertCheckbox = new Checkbox("PERT");
+        // Create two checkboxes from java.awt.Checkbox
+        Checkbox cpmCheckbox = new Checkbox("CPM");
+        Checkbox pertCheckbox = new Checkbox("PERT");
 
         // Create a submit button
         Button submitButton = new Button("Submit");
